@@ -1,0 +1,121 @@
+//Gets the browser specific XmlHttpRequest Object
+function getXmlHttpRequestObject() {
+ if (window.XMLHttpRequest) {
+    return new XMLHttpRequest(); //Mozilla, Safari ...
+ } else if (window.ActiveXObject) {
+    return new ActiveXObject("Microsoft.XMLHTTP"); //IE
+ } else {
+    //Display our error message
+    alert("Your browser doesn't support the XmlHttpRequest object.");
+ }
+}
+
+
+//Our XmlHttpRequest object
+var receiveReq = getXmlHttpRequestObject();
+
+//Initiate the AJAX request
+function makeRequest(url, param) {
+//If our readystate is either not started or finished, initiate a new request
+ if (receiveReq.readyState == 4 || receiveReq.readyState == 0) {
+	try {
+	   //Set up the connection to captcha_test.html. True sets the request to asyncronous(default) 
+	   receiveReq.open("POST", url, true);
+	   //Set the function that will be called when the XmlHttpRequest objects state changes
+	   receiveReq.onreadystatechange = updatePage; 
+
+		//Add HTTP headers to the request
+		receiveReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		//receiveReq.setRequestHeader("Content-length", param.length);
+		//receiveReq.setRequestHeader("Connection", "close");
+
+	   //Make the request
+	   receiveReq.send(param);
+   
+	} catch(e){
+		//
+	}
+  }   
+}
+
+//Called every time our XmlHttpRequest objects state changes
+function updatePage() {
+ //Check if our response is ready
+ if (receiveReq.readyState == 4) {
+   //Set the content of the DIV element with the response text
+   //document.getElementById('result').innerHTML = receiveReq.responseText; // Commented by AB
+   //Get a reference to CAPTCHA image
+   img = document.getElementById('imgCaptcha'); 
+   //Change the image
+   img.src = base_url+'/create_image.php?' + Math.random();
+ }
+}
+
+//Called every time when form is perfomed
+function getParam(theForm) {
+ //Set the URL
+ var url = base_url+'/captcha.php';
+ //Set up the parameters of our AJAX call
+ var postStr = theForm.txtCaptcha.name + "=" + encodeURIComponent( theForm.txtCaptcha.value );
+ //Call the function that initiate the AJAX request
+ makeRequest(url, postStr);
+}
+
+//Called every time when form is perfomed
+function refresh_captcha() {
+ //Set the URL
+ var url = base_url+'/captcha.php';
+ //Set up the parameters of our AJAX call
+ var postStr = document.getElementsByName('txtCaptcha').name + "=" + encodeURIComponent( document.getElementsByName('txtCaptcha').value );
+ //Call the function that initiate the AJAX request
+ makeRequest(url, postStr);
+}
+
+
+//Called every time when form is perfomed
+function getLoginParam(theForm) {
+ //Set the URL
+ var url = base_url+'/captcha.php';
+ //Set up the parameters of our AJAX call
+ var postStr = theForm.txtLoginCaptcha.name + "=" + encodeURIComponent( theForm.txtLoginCaptcha.value );
+ //Call the function that initiate the AJAX request
+ makeLoginCaptchaRequest(url, postStr);
+}
+
+
+function updateLoginPageCaptcha() {
+ //Check if our response is ready
+ if (receiveReq.readyState == 4) {
+   //Set the content of the DIV element with the response text
+   //document.getElementById('result').innerHTML = receiveReq.responseText; // Commented by AB
+   //Get a reference to CAPTCHA image
+   img = document.getElementById('imgLoginCaptcha'); 
+   //Change the image
+   img.src = base_url+'/create_image.php?' + Math.random();
+ }
+}
+
+
+//Initiate the AJAX request
+function makeLoginCaptchaRequest(url, param) {
+//If our readystate is either not started or finished, initiate a new request
+ if (receiveReq.readyState == 4 || receiveReq.readyState == 0) {
+	try {
+	   //Set up the connection to captcha_test.html. True sets the request to asyncronous(default) 
+	   receiveReq.open("POST", url, true);
+	   //Set the function that will be called when the XmlHttpRequest objects state changes
+	   receiveReq.onreadystatechange = updateLoginPageCaptcha; 
+
+		//Add HTTP headers to the request
+		receiveReq.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		//receiveReq.setRequestHeader("Content-length", param.length);
+		//receiveReq.setRequestHeader("Connection", "close");
+
+	   //Make the request
+	   receiveReq.send(param);
+   
+	} catch(e){
+		//
+	}
+  }   
+}
