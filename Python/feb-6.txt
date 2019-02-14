@@ -1,0 +1,1789 @@
+
+er.sky282@gmail.com,
+rakendra.thapa@infineon.com,
+sachin.s@infineon.com,
+
+
+
+Class
+object
+data members
+methods
+how to create a object
+mutator
+non-mutator
+
+Compile Time Vs Run Time
+Pointer Vs REferences
+Book Keeper ( namespaces/packages/symbol table)
+Memory layout of "C" program
+Data structures
+Compare C with Python
+----------------------- 
+  decl lang/Non-decl                 - DEcl lang  - Non-Decl Lang
+  memory allocation decision         - CT         - RT - Heap 
+  know of the variable               - CT         - RT  
+  type checking                      - CT         - RT
+  type specified yes/no              - yes        - yes
+  var binded with type loosely/tight - tightly    - Loosely 
+
+
+REference counting
+shallow copy Vs Deep Copy
+Garbage Collector
+
+
+a=45678
+  print(a)
+  type(a)
+  id(a)
+  a.__sizeof__()
+  import sys
+  sys.getrefcount(a)
+b = a
+
+
+a=10  # auto declare - autovivify
+b=2.5
+c='hello' c="hello"  c='''hello'''
+d=True                  # boolean
+e=None                  # NoneType
+f=25j                   # complex
+g=b"hello world"        # byte strings
+h=(10,20,30)            # tuple - constant list
+i=frozenset([10,20,30]) # 
+
+a = bytearray([10,20,30])
+b = [10,20,30]
+c = {10,20,30}
+d = {"north" : 10, "south": 20}
+
+Note:
+  while we create objects
+  for primitive classes - class name is optional
+  for non-prim classes  - class name is compulsory 
+
+
+www.python.org      - IDLE 
+www.activestate.com - Pro Studio
+www.anaconda.org    - Spyder & Ipython/Jupyter Notebook
+www.jetbrains.com   - PyCharm ( community/professional)
+
+Pydev
+Visual Code
+atom
+sublime
+
+
+                          python
+                            |
+                ------------------------
+               |                        |
+              2.x                      3.x
+              2.4                      3.3  
+              2.6
+              2.7                      3.7
+
+syntax
+libs
+features
+renamed
+
+CPython     - written in "C"
+Jython      - Java
+IronPython  - C#
+Stackless py
+pypy
+micropython
+numba
+
+scanf in python -  scanf("%s",a);
+==================================
+a = input("Enter the value of a : ")
+
+printf in python:-
+==================
+a=10
+b=20
+c=a*b
+print("Hello ans = ",c)
+print("Hello ans = "+str(c))
+print("Hello ans = "+repr(c))
+
+print("Hello %s %s = %s" %(a,b,c))
+print("Hello {0} {1} = {2}".format(a,b,c))
+
+
+Type Conversions in python:-
+=============================
+a = "10"
+res = int(a)   # convert from str to int
+
+a = (10,20,30,40)
+b = list(a)
+b.append(50)
+b.pop(0)
+
+a=["10","20","30","40"]
+res="-".join(a)
+
+
+int - str
+int - float
+
+str to list
+str to tuple
+str to set
+
+list to tuple
+list to set
+
+list to string - "delimiter".join(list)
+
+
+How to write a script/program in python:-
+=========================================
+
+How to run the script:-
+=======================
+How to on IDE
+How to on COmmand prompt
+
+
+str-class:-
+===========
+>> collection
+>> im-mutable
+>> char set - UNICODE - utf-8
+
+
+a = "bengaluru"
+string length   : len(a)
+first char      : a[0]
+last char       : a[-1]
+first 4         : a[:4]
+except first 4  : a[4:]
+last 4          : a[-4:]
+except last 4   : a[:-4]
+EF2-EL2         : a[2:-2]
+alternates      : a[::2]
+alternates      : a[1::2]
+reverse         : a[::-1]
+search          : if "substr"  in  sent
+split           : flst = a.split("delimiter")
+join            : res = "delimiter".join(flst)
+
+
+Task:-
+======
+Rule1) never use CLASS names as variable names
+Rule2) never use INBUILT FN NAMES as variable names
+Rule3) var name shld be in lowercase
+Rule4) avoid using more steps & variables
+
+name="amarnath"
+
+res1 = name[0].upper() + name[1:]
+res2 = name[:-1] + name[-1].upper()
+res3 = name[:2].upper() + name[2:-2] + name[-2:].upper()
+res4 = name[:4].upper()
+res5 = name[:-3] + name[:-5:-1].upper()
+
+
+Task:-
+=======
+data = "/home/ravi/logs/kernel.log"
+filename = ?
+dir path = ?
+
+flst = data.split("/")
+print("filename = ",flst[-1])
+print("dir name = ","/".join(flst[:-1]))
+
+fname = "report.xlsx"
+filename w/o extension = ?
+extension              = ?
+extensions f3          = ?
+
+data="north-sales-10,20,30"
+find total sales
+
+mlst = data.rsplit("-",1)[-1].split(",")
+
+ans = sum(int(e) for e in mlst)    #### trick
+or
+flst = [int(e) for e in mlst]
+print(sum(flst))
+
+data="10-20|30,40|50|60,70"
+f3
+l4
+
+data="math-10-soc-20-sci-30"
+find total marks
+sum(int(e) for e in data.split("-")[1::2])
+
+data = "10-20-30-40"
+
+flst = data.split("-")
+alst = [int(e) for e in flst]
+blst = [e+1 for e in alst]
+clst = [str(e) for e in blst]
+res = "-".join(clst)
+
+or
+res = "-".join(str(int(e)+1) for e in data.split("-"))
+
+Ex1:-
+=====
+alst = ["10","20","30","40","50"]
+blst = [int(e) for e in alst ] 
+
+Ex2:-
+=====
+alst = ["Q1","10","Q2","20","Q3","30","Q4","Q5","50"]
+blst = [int(e) for e in alst if e.isdigit() ]
+
+if-else:-
+=========
+if a>10 and b>20
+if a>10 or b>10
+elif
+
+if a==b :
+   print(a)
+else:  
+   print(b)
+
+
+loc1="blr-Q1-10-Q2-94"
+loc2="mys-Q1-45-Q2-30"
+
+compare sales of both the cities & display city name
+
+
+
+
+Iterator protocol:-
+===================
+collection - iterable
+cursor     - iterator [ stateful ] 
+
+How to create a iterator for a LIST:-
+--------------------------------------
+it = iter([10,20,30,40,50])
+
+method1 - next(it)
+method2 - print(*it)
+method3 - alst = list(it)
+        - sum(it)   
+        - max(it)  
+        - min(it)
+method4 - 45 in it
+method5 - a,b,c,d,e = it
+
+
+value based iterator:-
+======================
+>> read-only of data
+
+numlst = [10,20,30,40,50]
+
+for elem in numlst:
+   elem = elem + 5
+   print(elem)
+
+
+example for zip:-
+-----------------
+>>> alst = ["a","b","c","d"]
+>>> blst = [1,2,3,4,]
+>>> it = zip(alst,blst)
+>>> it
+<zip object at 0x00EFA508>
+>>> list(it)
+[('a', 1), ('b', 2), ('c', 3), ('d', 4)]
+>>>
+   
+parallel iterator:-
+===================
+>> using special function - zip(iter1,iter2,iter3....)
+>> truncate to the SMALLEST LIST
+
+alst = ["a","b","c","d"]
+blst = [1,2,3,4,]
+for elem1,elem2 in zip(alst,blst):
+  print(elem1,elem2)
+
+example:-
+---------
+>>> import itertools
+>>> list(itertools.zip_longest(alst,blst))
+[('a', 1), ('b', 2), ('c', 3), ('d', 4), (None, 5), (None, 6), (None, 7), (None, 8)]
+TypeError: zip_longest() got an unexpected keyword argument
+>>> list(itertools.zip_longest(alst,blst,fillvalue=0))
+[('a', 1), ('b', 2), ('c', 3), ('d', 4), (0, 5), (0, 6), (0, 7), (0, 8)]
+>>>
+
+
+c-like for loop in python:-
+============================
+>> read-write on list
+>> bit slow
+
+numlst = [10,20,30,40,50]
+
+for i in range(0, len(numlst), 1):
+   print(i, numlst[i])
+
+
+
+tuple-class:-
+=============
+>> im-mutable
+>> indexing
+>> slicing
+>> iterable
+>> can be part of set
+>> can be used as dict-key
+>> faster than list
+
+
+define a tuple  : a=(10,20,30,40)
+length          : len(a)
+indexing        : a[-1]
+slicing         :
+search 45       : if 45 in a
+compare 2 tuple : if a==b:
+merge 2         : c=a+b
+
+tuple unpacking:-
+-----------------
+a,b,c = 10,20,30
+
+*a,b,c = 10,20,30,40,50,60
+a,*b,c = 10,20,30,40,50,60
+a,b,*c = 10,20,30,40,50,60
+
+a,b = 10,20
+a,b = b,a
+
+a,b,c = "hello world unix".split() # most-used
+
+
+list-class:-
+============
+empty list     :  alst=[]
+normal list    :  alst=[10,20,30,40,50]
+length         :  len(alst)
+search         :  if 45 in alst:
+add            :  alst.append(60)
+delete         :  alst.pop(0)
+sort           :  alst.sort()
+               :  alst.sort(reverse=True)
+reverse        :  alst.reverse()
+
+Task:-
+======
+namelst = ["arun-kumar",
+           "ravi-shankar",
+           "hari-prasad",
+           "john-peter"
+          ]
+
+AK RS HP JP
+
+
+Task2:-
+=======
+studlst = ["arun-math=10,sci=20,soc=30",
+           ....
+          ]
+arun total = ? 2nd best = 20
+
+
+Custom -sort:-
+===============
+f(x) = x*x
+
+f = lambda x : x*x
+
+f1("10,20,30,40") - 100
+f1 = lambda x : sum(int(e) for e in x.split(","))
+
+f2("ravi-blr-20,30,25) - find sum
+f2 = lambda x : sum(int(e) for e in x.rsplit("-",1)[-1].split(","))
+
+f3(10,5) - 15
+f3 = lambda x,y : x+y
+
+f4([3,7,5,8,6])  - find the 2nd max
+f4 = lambda x : sorted(x)[-2]
+
+f5([10,20],[30,40]) - compare 10 30 return TRue/False
+f5 = lambda x,y : x if x[0]>y[0] else y
+
+
+list.sort(key = f(x) , reverse=False)
+f(x) should return the field/value to compare
+
+
+studlst = [
+           "hari-sales-blr-45",
+           "guru-purch-chn-56",
+           "elan-accts-hyd-42",
+           "john-finan-blr-40",
+           "raja-accts-blr-76"
+          ]
+studlst.sort( key = lambda x : int(x.split("-")[-1]))
+
+print("\n".join(studlst))
+
+
+see later:-
+------------
+sort based on multi-key
+
+                      DAta STruct
+                          |
+             -------------------------
+            |                         |
+         sequence                  non-sequence
+
+       ordered collections         un-unordered collections 
+                                   [ indexing & Slicing not allowed ]       
+
+       str                         set
+       tuple                       dict
+       list
+
+set-class:-
+===========
+>> collection of unique constant values
+>> duplicates are auto deleted
+>> un-ordered / non-sequence
+>> indexing & Slicing not allowed
+
+
+define a empty set  :  a = set()
+union               :  c = a.union(b)        / c=a|b
+intersection        :  c = a.intersection(b) / c=a&b
+difference          :  c = a.difference(b)   / c=a-b
+symmetric diff      :  c = a^b
+
+
+grp1="a,10,b,c,d,20,56,e,f"
+grp2="p,55,q,r,s,10,20,a,b,c"
+
+find common integer b/w 2 grps - [10,20]
+find strings b/w 2 grps        - ["p","q","r","s","e","f"]
+
+alst = [int(e) for e in grp1.split(",") if e.isdigit() ]
+blst = [int(e) for e in grp1.split(",") if e.isdigit() ]
+
+common = list(set(alst) & set(blst))
+
+dict-class:-
+============
+>> collection of key-value pairs
+>> mutable
+>> non-sequence
+>> indexing allowed
+
+
+define a empty dict :  atab={}
+define a dict       :  atab={"n":10,"s":20,"e":30,"w":40}
+search for "sw"     :  if "sw" in atab:
+get value of "s"    :  atab["s"] / atab.get("s")
+overwrite "w" - 55  :  atab["w"] = 55
+add "ne"  60        :  atab["ne"] = 60
+delete "n"          :  atab.pop("n")
+compare 2 dict      :
+merge 2 dict        :
+
+
+colors = ["red","blue","yellow"]
+vals   = [10,20,30]
+ctab = dict(zip(colors,vals))
+
+usercolor = input("Enter any colour name : ")
+if usercolor in ctab:
+   print("yes")
+   print(ctab[usercolor])
+else:
+   print("no")
+
+
+task:-
+======
+datalst = [ "[http:404] - 192.168.1.10",
+            "[http : 401 ] - 10.1.1.1",
+            "[ http :402] - 127.0.0.1",
+            "[ http : 403] -250.2.3.4"
+          ]
+
+prepare a dict
+404 - 192.168.1.10
+
+sol
+===
+datalst = [ "[http:404] - 192.168.1.10",
+            "[http : 401 ] - 10.1.1.1",
+            "[ http :402] - 127.0.0.1",
+            "[ http : 403] -250.2.3.4"
+          ]
+
+errortab={}
+
+for elem in datalst :
+   error, ip = elem.split("-")
+   enum = error.split(":")[1].strip(" ]")
+   ip = ip.strip()
+   errortab[enum] = ip
+
+print(errortab)
+
+user = input("Enter the error code : ")
+
+if user in errortab:
+   print(errortab[user])
+else:
+   print("invalid error")
+
+
+
+Nested DAta structures:-
+========================
+
+a = ((10,20,30), (40,50,60), (70,80,90))
+
+matrix = [[10,20],[30,40],[50,60]] ### most used
+
+a = {
+      "north" : [10,20],           ## most used
+      "south" : [30,40]
+    }
+
+
+a = {
+     "north" : {"loc":"delhi", "vals":[10,20], },
+     "south" : {"loc":"blr"  , "vals":[30,40]  }
+    }
+
+Extended DAta structues:-
+=========================
+import array
+
+alst = array.array("i")  # "i" denotes integer
+alst.append(50)
+alst.append(34)
+alst.append("hello")
+
+see later:- import heapq
+            import bisect
+            import collections
+
+import collections
+
+alst = ["north","south","north","west","east","north"]
+
+res = collections.Counter(alst)
+
+print(res)
+
+===========================================================================
+
+Functional programming:-
+========================
+1) lambda expressions      :   f = lambda x   : x*x
+                           :   f = lambda x,y : x+y
+                           :   f = lambda x,y : x if x>y else y
+
+2) map-algo                :   it = map( f(x), iterable)
+                               it = map( f(x,y), iter1,iter)
+
+3) filter-algo             :   it = filter( Predicate-Fn, iterable )
+
+4) reduce-algo             :   res = reduce( f(x,y), iterable )
+
+5) list-compre             :   lst = [ int(e) for e in alst ]
+                               lst = [ e for e in alst if e%2==0 ]
+
+6) dict-comp               :   atab = {key:val for key,val in zip(a,b) }
+
+7) set-comp                :   res = {e for e in alst }
+
+8) generator comp          :   it  = (e for e in alst )
+
+9) partial funs            :
+
+10) itertools/functools    :
+
+example for filter:-
+====================
+alst = [10,20,30,None,50,60,None,None,0,"",[]]
+
+alst[:] = list(filter(None,alst))  # remove all the FALSE
+
+print(alst)
+
+
+Given
+------
+alst = [10,20,30,40]
+blst = [1,2,3,4,5]
+Expected:-
+----------
+clst= [11,22,33,44]
+
+clst  = list(map(lambda x,y : x+y, alst,blst))
+clst  = [e1+e2 for e1,e2 in zip(alst,blst)]
+
+
+Given:-
+-------
+alst = [10,20,30,40,50,60,70,80]
+Expected:-
+----------
+blst = [[10,20],[30,40],[50,60],[70,80]]
+
+blst = list(map(lambda x,y : [x,y], alst[::2],alst[1::2]))
+
+Given:-
+-------
+datelst = ["12-jan","10-feb","5-oct","1-mar","31-jan","5-"apr"]
+Expected:-
+----------
+collect all the dates which are of current month - depend on system date
+
+import datetime
+
+month = datetime.date.today().strftime("%m").lower()
+
+clst = list(filter(lambda x : x.split("-")[1]==month, datelst))
+
+
+Given:-
+========
+alst = [[14,20,10], (40,50,60),[75,66],{10,20},[93,40]]
+
+Expected:-
+==========
+sort only the list
+
+clst = [ sorted(e) for e in alst if type(e)==list ]
+
+
+
+
+alst = [10,5,4,6,8,11,13,1,2,7,15,20]
+
+pairs sum = 8  
+
+import itertools
+
+it = filter(lambda x : sum(x)==8 , itertools.combinations(alst,2))
+
+print(*it)
+
+===========================================================================
+Files:-
+=======
+>> to store data perm
+>> TExt Files
+   Binary Files
+>> BOF - 0
+   CUR - 1
+   EOF - 2
+>> diff modes
+   r  - readonly       - BOF - retained - error
+   w  - overwrite      - BOF - lost     - create new file
+   a  - append         - EOF - retained - create new file
+   r+ - read-write     - BOF - retained - error
+   w+ - overwrite-read - BOF - lost     - create new file
+   a+ - append-read    - EOF - retained - create new file
+   rb - read-binarymode
+
+>> fob.seek(bytes, refpoint)
+   fob.seek(0,0) / fob.seek(0)
+   fob.seek(0,2)  
+   fob.seek(110,1)
+   fob.seek(25,0)
+>> fob.tell()
+   
+How to write into the file:-
+----------------------------
+empfile = open("c:\\that\\this\\emps.txt","w")
+
+empfile.write("hello world\n")
+empfile.write("bye")
+
+empfile.close()
+
+
+How to read from the file:-
+---------------------------
+fob = open("emp.txt")
+
+for elem in fob:
+  print(elem)
+
+fob.close()
+
+
+
+task:-
+=======
+# open the file only once
+
+f1 = open("data.txt","w+")
+
+f1.write("today is a sunday\n")
+f1.write("day starts with fun!\n")
+f1.write("someday also is fine\n")
+f1.write("end of the data\n")
+f1.write("Fun Day")
+
+replace all the exact word "day" - DAY 
+
+Task:-
+=======
+
+f1 =open("one.txt","r")
+
+numtab={}
+for elem in f1:
+  key,value = elem.rstrip("\n").split("-")
+  numtab[key] = int(value)
+
+f1.close()
+
+f2 = open("Two.txt","r")
+for elem in f2:
+  if "+" in elem:
+    oper = "+"
+  elif "-" in elem:
+    oper = "-"
+  elif "*" in elem:
+    oper = "*"
+  elif "/" in elem:
+    oper = "/"
+  else:
+    oper = None
+  if oper :
+    op1,op2 = elem.split(oper)
+    if op1 in numtab and op2 in numtab:
+       print("Valid expression")
+       print(eval("%s %s %s" %(numtab[op1],oper,numtab[op2])))
+    else:
+       print("Invalid Expression")
+f2.close()
+
+
+"with" keyword:-
+----------------
+>> close the file automatically
+>> context manager - enter() / exit()
+>> once the control comes out of with block, file will be autoclosed
+
+with open("data.txt","r") as fob:
+  print("hello")
+  print("done")
+
+print("bye")
+
+
+file check:-
+------------
+import os
+
+if os.path.isfile("one.txt"):
+   print("found")
+else:
+   print("not found")
+
+strbuffer = fob.read()     # complete file & returns it as a STRING
+strbuffer = fob.read(1024) # read 1KB & returns it as a STRING
+strbuffer = fob.readline() # read a line
+lstbuffer = fob.readlines() # complete file & returns it as a LIST
+
+see later:-
+------------
+ object perssistence - pickle/shelve/json/databse
+
+===========================================================================
+Functions:-
+===========
+ >> Nested Functions
+ >> Generators
+
+ >> fns has to be defined before USE - Interpretered Lang
+ >> Fn can return mutliple values    - TUPLE
+ >> var defined within fn are by default - LOCAL
+ >> there is NO TYPE CHECKING of Function args
+ >> Call by reference
+
+ >> globals()/locals()
+ >> keyword-global
+ >> positional args/default args/keyword args
+ >> variable args
+
+
+ex1:-
+=====
+def fun():
+   print("In Fun = ",num)
+
+
+num = 100
+print("before = ",num)
+fun()
+print("After  = ",num) 
+ 
+
+100
+100
+100 
+
+ex2:-
+=====
+def fun():
+  num = 200  
+  print("In Fun = ",num)
+
+
+num = 100
+print("before = ",num)
+fun()
+print("After  = ",num) 
+ 
+
+100
+200
+100 
+
+
+ex3:-
+=====
+def fun():
+  global num
+  num = 200  
+  print("In Fun = ",num)
+
+
+num = 100
+print("before = ",num)
+fun()
+print("After  = ",num) 
+ 
+
+100
+200
+200 
+
+
+ex4:-
+=====
+def fun():
+  num = 200  
+  print("In Fun = ",num)  # 200
+  print("In Fun = ",globals()["num"])  # 100
+
+
+num = 100
+print("before = ",num)
+fun()
+print("After  = ",num) 
+
+
+Guess:-
+========
+def fun(alst):
+  alst[0:4] = ["*"] * 4
+  print(alst)
+
+numlst = [10,20,30,40,50,60]
+print(numlst)
+fun(numlst)
+print(numlst)
+
+
+example:-
+---------
+#positional arguments
+
+def si(p,t,r):
+  res = p*t*r/100
+  print(res)
+
+
+si(25000, 12, 18)
+
+
+#default arguments
+
+def si(p=10000,t=12,r=24):
+  res = p*t*r/100
+  print(res)
+
+si(25000)
+
+# keyword args:-
+----------------
+>> non-keyword args first & then non-keyword args
+
+def si(pri=10000,term=12,rate=24):
+  res = p*t*r/100
+  print(res)
+
+
+si(term=60)
+si(term=24,18) # invalid
+si(18,term=24) 
+
+
+variable args:-
+----------------
+
+def fun(*args):
+  print(args)
+
+
+fun(10,20,30,40)
+fun(1,2)
+fun()
+fun(5,6,7)
+fun(45)
+
+
+def fun(**kwargs):
+  print(kwargs)
+
+
+fun(file="one.txt",rows=5,cols=100,sep="\n")
+fun()
+fun(user="root",password="root@123")
+fun(src="one.txt")
+
+
+def fun(*args,**kwargs):
+  print(args)
+  print(kwargs)
+
+How to write fun wrapper in python:-
+------------------------------------
+import datetime
+def express(a,b,c,d):
+  print("express")
+
+def add(val1,val2):
+  print("add")
+
+def cube(num):
+  print("cube")
+
+def greet():
+  print("greet")
+
+def wrapper(fnptr,*args,**kwargs):
+  print(datetime.date.today())
+  res = fnptr(*args,**kwargs)
+  return res
+
+wrapper(add, val1=5,val2=40)
+wrapper(cube,5)
+wrapper(greet)
+wrapper(express,10,20,c=30,d=40)
+
+GEnerator Expressions
+Co-routines
+Generator Functions:-
+=====================
+>> any fn has a keyword "yield" such funs are termed as generators
+>> when we call a gen-fun it returns the Address of execution Point
+>> we can execute function  aysch
+>> lazy executions
+>> we have to iterate to start the execution
+>> can have "return keyword" but empty
+
+
+def fun():
+  print("a")
+  a=10
+  b=20
+  yield a+b
+  c=30
+  yield a+b+c
+  yield 40
+  yield 50
+
+alst = list(fun())
+print(alst)
+
+
+Nested Functions:-
+==================
+
+def outer(mesg):
+  mesg = mesg.upper()
+  a=10
+  b=20
+  def inner():
+    c=30
+    ans = a + b + c
+    print("INNEr = ",ans)
+    print("INNER = ",locals())
+  inner()
+
+outer("HEllo world")
+
+
+Closures:-
+==========
+
+>> nested function
+>> inner function should be using the variables of outer function
+>> return address of inner-function
+>> if above 3 conditions are satisfied - then are termed as CLOSUREs
+
+>> Inner function remembers the variable of OUTER FUnction 
+   in a ATTRIBUTE called __closure__  
+
+
+mylib.PY				main.py
+--------				-------
+import datetime				import mylib
+
+def outer(fnptr):
+  def inner(*args,**kwargs):
+     print("Hello")
+     res=fnptr(*args,**kwargs)
+     print("Bye")
+     return res
+  return inner
+
+
+def express(a,b,c,d):			mylib.express(1,2,3,4)
+  print("express")			print("HELLO",__name__)
+  print("EXP=",__name__)
+  return a+b+c+d
+
+def add(val1,val2):
+  print("add")
+
+def cube(num):
+  print("cube")
+
+def greet():
+  print("greet")
+
+
+
+
+
+Decorators:-
+============
+>> Aspect Orienter Programming ( AOP )
+>> common set of statements to be executed before & after the call
+>> Function wrappers
+
+mylib.PY				main.py
+--------				-------
+import datetime				import mylib
+
+def outer(fnptr):
+  def inner(*args,**kwargs):
+     print("Hello")
+     res=fnptr(*args,**kwargs)
+     print("Bye")
+     return res
+  return inner
+
+@outer
+def express(a,b,c,d):			mylib.express(1,2,3,4)
+  print("express")			print("HELLO",__name__)
+  print("EXP=",__name__)
+  return a+b+c+d
+
+def add(val1,val2):
+  print("add")
+
+@outer
+def cube(num):
+  print("cube")
+
+@outer
+def greet():
+  print("greet")
+
+
+
+
+
+
+
+Modules:-
+=========
+>> collection of functions/classes/variables
+>> file extension shld be .PY
+>> every module will have its own BOOK-KEEPER
+>> Intermediate file - .PYC
+                     -  python byte code
+                     -  pre-compiled python - portable
+>> import modulename
+   from package import *
+   from package import selection
+
+>> Module constructor
+>> Module search path
+
+Note:
+ -how to print the book keeper name = print(__name__)
+ -any program we run such programs book keeper name is set to "__main__"
+  automatically
+
+import datetime
+def express(a,b,c,d):
+  print("express")
+
+def add(val1,val2):
+  print("add")
+
+def cube(num):
+  print("cube")
+
+def greet():
+  print("greet")
+
+if __name__ == "__main__":
+   print("this is library not a executable program")
+else:
+   print("library loaded") #Module constructor
+   
+
+problem:-
+----------
+                            c:
+                             |
+            ----------------------------
+           |                            |
+          test                         repo
+           |                            |
+         progs                        alpha
+           |                            |
+one.py                                mylib.py
+-------                               ---------
+import mylib
+
+
+two.py
+------
+import mylib
+    
+
+if we run one.py what will happen ?
+solution1 - write this code in the program
+import sys
+sys.path.append("c:\\repo\\alpha")
+
+solution2 - create a ENV variable - pythonpath=c:\repo\alpha 
+
+
+
+
+Packages:-
+==========
+>> collection of modules
+>> every package it is compulsory to have a file named - __init__.py
+
+
+
+my interest is alpha.py & to f1
+import one.alpha
+
+one.alpha.f1()
+
+
+my interest complete folder - f1/f3/f4
+from one import * 
+
+alpha.f1()
+beta.f3()
+sub.delta.f4()
+
+
+call -f1 of alpha
+call - f1 of omega
+
+from one import alpha
+from two import omega
+
+alpha.f1()
+omega.f1()
+
+
+from one.alpha import f1 as alphaf1,f2
+from one.beta import *
+
+f1()  # beta version of f1
+f2()  #
+f3()  #
+alphaf1() # alpha version of f1
+
+=========================================================================== 
+
+                          Classes
+                            |
+          -------------------------------------
+         |                                     |
+       COmpile Time                     Run Time Classes
+ 
+       Develop C++/JAVA/C#              Perl / Python
+
+Python Class Development:-
+==========================
+>> we develop Run Time Classes - Monkey PAtching, Duck Typing
+>> Constructor - def __init__
+>> Destructor  - def __del__   - optional since we have GC
+>> this pointer in python is refered as "self"
+>> Python we have class hierarchy - "object"
+>> Default access specifier - PUBLIC
+>> in run time classes we don't declare DATA MEMBERs
+>> First letter of the class should a CAPTIAL LETTER
+
+
+Fileinfo.PY
+============
+import os
+
+class Fileinfo:
+  
+   def __init__(self,name=None):
+      if os.path.isfile(name):
+         self.name = name
+         self.type = "file"
+      elif os.path.isdir(name):
+         self.name = name
+         self.type = "dir"
+      else:
+         self.name = None
+         self.type = None
+
+   def findsize(self):
+      if self.type == "file":
+        self.size = os.stat(self.name).st_size
+      else:
+        self.size = 0
+
+   def show(self):
+      print(self.name,self.type,self.size)
+   
+
+
+ex1:-
+=====
+import os
+class Fileinfo:
+  
+   def __init__(self,name=None):
+      if os.path.isfile(name):
+         self.name = name
+         self.type = "file"
+      elif os.path.isdir(name):
+         self.name = name
+         self.type = "dir"
+      else:
+         self.name = None
+         self.type = None
+
+   def findsize(self):
+      if self.type == "file":
+        self.size = os.stat(self.name).st_size
+      else:
+        self.size = 0
+
+   def show(self):
+      print(self.name,self.type,self.size)
+
+
+ob1 = Fileinfo("one.txt")
+ob1.findsize()
+ob1.show()
+
+print(ob1)
+print(type(ob1))
+print(vars(ob1)) # print(ob1.__dict__)
+
+print(Fileinfo.__mro__)
+
+
+-----------------------------------------------------------------------
+class Stud:
+ 
+  def __init__(self,name,marks):
+     self.name = name
+     self.marks = marks
+
+  def find_total(self):
+     self.total = sum(self.marks)
+  
+  def show(self):
+     print(self.name,self.marks,self.total)
+
+  def __gt__(self,other):   ## operator overloading for ">" operator
+     return self.total > other.total
+
+
+from Stud import *
+
+st1 = Stud("arun",[10,20,30,40,50])
+st2 = Stud("ravi",[43,43,23,54,23])
+
+st1.find_total()
+st2.find_total()
+
+if st1>st2: 
+   st1.show()
+else:
+   st2.show()
+
+
+
+Quick points w.r.t classes:-
+============================
+Objs in python are which DS  : dictionary
+constructor                  : def __init__(self)
+destructor                   : def __del__(self) 
+
+private data members         : self.__datamember
+public data members          : self.datamember
+static methods               : @staticmethod
+class methods                : @classmethod
+bound methods                 :
+
+operator overloading         : def __add__(self,other)
+slots in python              : fix the data members
+inheritance                  : there is NO CTOR Cascading -we have to do it
+                               support Mulitple Inher - C3 Linear Algo
+                               class Derived(BASE1,BASE2)
+                               super().BASEMETHOD()        # std-call
+                               BASECLASS.BASEMETHOD(self)  # Non-std-call
+method over-riding           : super().baseclassmethod
+                               BASECLASS.BASEMETHOD(self)  # Non-std-call 
+property                     : @property
+abstract methods             : import abc / @abstractmethod
+
+getter & setter protocol     : def __getattr__
+                               def __setattr__
+               
+
+
+ex for static methods & Static dat members:-
+============================================
+
+class Sample:
+
+   mesg = "this is property of the class"
+
+   def method(self):
+       self.a = 10
+       self.b = 20
+       print("METHOD = ",self.a + self.b)
+
+   @staticmethod
+   def display():
+       print("MESg = ",Sample.mesg)
+
+
+# can i call display - now
+Sample.display()
+
+# can i call method  - now
+ob = Sample()
+ob.method()
+
+
+ex for class methods :-
+=======================
+
+class Sample:
+
+   mesg = "this is property of the class"
+
+   def method(self):
+       self.a = 10
+       self.b = 20
+       print("METHOD = ",self.a + self.b)
+
+   @classmethod
+   def display(cls):
+       print("MESg = ",cls.mesg)
+
+
+# can i call display - now
+ob1 = Sample()
+ob1.display()
+
+# can i call method  - now
+ob2 = Sample()
+ob2.method()
+
+
+Monkey patching:-
+=================
+class Emp:
+ 
+  def __init__(self,name,dept):
+     self.name = name
+     self.dept = dept
+
+  def show(self):
+     print(self.name,self.dept)
+
+     
+
+e1 = Emp("arun","sales")
+e1.show()
+e2 = Emp("john","finan")
+old = Emp.show
+Emp.show = lambda self: print(self.name.upper(),self.dept.upper())
+e2.show()
+Emp.show = old
+
+e3 = Emp("hari","purch")
+e3.show()
+
+Ducktyping/Duck-Test:-
+======================
+>> classes can communicate without INHERITANCE
+
+if you can walk & quack then u r a DUCK
+
+if u r class has common methods "walk()" & "quack()"
+
+
+Iterators:-
+===========
+>> if a class has 2 special methods
+
+  def __iter__(self):
+  def __next__(self):
+
+
+ex:-
+====
+class Emp:
+ 
+  def __init__(self,name,dept):
+     self.name = name
+     self.dept = dept
+
+  def show(self):
+     print(self.name,self.dept)
+
+  def __iter__(self):
+     return iter([self.name,self.dept])
+     
+
+eob = Emp("arun","sales")
+
+for elem in eob:
+  print("Hello",elem)
+
+
+Exception Handling:-
+====================
+>> software interrupts from the applications
+>> Explicit Exception Handling - automatically taken care by compiler
+                               - abruptly exits the application
+   Implicit Exception HAndling - by we programmers
+                               - clean exit
+                               - try/except/else/finally/raise
+>> BaseException
+   Exception
+
+Note: ^C in python is KeyBoardInterrupt Exception in python
+
+try:
+
+    block
+
+except ValueError as e1:
+    print(e1,"act1")
+except IndexError as e2:
+    print(e2,"act2")
+except KeyError as e3:
+    print(e3,"act3")
+except:
+    print("Generic Catch block")
+else:
+    print("When there is no Exception")
+finally:
+    print("always")
+
+
+ex:-
+=====
+import traceback
+import sys
+
+class FieldError(Exception):
+    def __init__(self,mesg):
+        super().__init__()
+        self.mesg = mesg 
+    def __str__(self):     # toString-JAVA equivalent of "PYTHON"
+        return self.mesg
+
+try:
+    data = "hello world"
+    if "hello" not in data:
+        raise FieldError("data should have - hello")
+    if len(data)==0:
+        raise ValueError
+    print("MESG = ",data)
+except FieldError as e1:
+    print(e1)
+except:
+    print("Uncaught exception")
+    traceback.print_exec()
+    print(sys.exec_info())
+finally:
+    print("Cleanup")
+
+ 
+
+core libs:-
+===========
+numpy:-
+=======
+>> array operations
+>> written in "C"
+>> speed-up
+
+import numpy as np
+
+
+mat1 = np.array([[14,3,12],[8,4,15],[7,10,6]])
+mat2 = np.array([[1,2,3],[4,5,6],[7,8,9]])
+
+print(mat1[0][0])
+print(mat1[:,0])  # special 
+
+ans = mat1.dot(mat2) # matrix mult
+
+res = mat1[mat1>10]
+
+
+
+
+
+
+regex:-
+=======
+import re
+
+re.search()
+re.match()
+re.sub()
+re.split()
+re.findall()
+
+import re
+
+data = "10 hello 20 30 40 bye also there 50"
+alst = re.findall("\d+", data)
+print(alst)
+
+
+#delete all the vowels 
+
+import re
+
+data = "hello world of unix and python"
+
+res = re.sub("[aeiou]", "",data,re.I)
+
+
+#Memorize a pattern:-
+
+import re
+
+data = "ravi shankar prasad"
+
+res = re.search("(\w\w)(\w+)\s(\w+)\s(\w+)", data)
+
+if res:
+   print(res.group(1))
+   print(res.group(2))
+   print(res.group(3))
+   print(res.group(4))
+
+database:-
+==========
+
+import sqlite3
+
+con = sqlite3.connect("master.db")
+cur = con.cursor()
+
+cur.execute("create table emps(name string,dept string)")
+cur.execute("insert into emps values('arun1','sales')")
+cur.execute("insert into emps values('arun2','sales')")
+cur.execute("insert into emps values('arun3','sales')")
+cur.execute("insert into emps values('arun4','sales')")
+
+cur.execute("Select * from emps")
+for elem in cur.fetchall():
+  print(elem)
+
+con.close()
+
+
+Network:-
+=========
+ import telnetlib
+ import ftplib
+ import smtplib
+  
+ import paramiko
+ import urllib.request
+
+
+
+one person - one job     - uni-processing
+one person - many jobs   - multi-tasking / time-shared
+many persons - many jobs - multiprocessing/parallelism
+many persons - same job  - Pool
+
+Multi-Tasking    - Thread or Async Execution-Eventloop
+Multi-Processing - Process
+Pool             - Concurrency
+
+import threading
+import multiprocessing
+import subprocess
+import concurrent
+import asynio 
+import greenlets
+
+
+import threading 
+import os
+import time
+
+def task1():
+ print("HEllo from TASK-1",os.getpid())
+ time.sleep(5)
+
+def task2():
+ print("HEllo from TASK-2",os.getpid())
+ time.sleep(6)
+
+if __name__ == "__main__"  # check is compuslory for parallel
+  print("MAin = ",os.getpid())
+  t1 = threading.Thread(target = task1, args=())
+  t2 = threading.Thread(target = task2, args=())
+  start = time.time()
+  t1.start()
+  t2.start()
+  t1.join()
+  t2.join()
+  end = time.time()
+  print("Time took = ",end-start)
+
+
+
+
+
+
+tools - unittest/debug/doc/install/distribute
+
+ex for unittest:-
+-----------------
+import unittest
+import modulename_to_test  as mt
+
+class Mytest(unittest.TestCase):
+ 
+    def setUp(self):
+       self.data = [10,20,30,40]
+       self.fob  = open("one.txt","w")
+
+    def tearDown(self):
+       self.fob.close()
+
+    def test_fun1(self):
+       mt.fun1(self.data)
+       self.assertEquals(self.data[0],25)
+
+    def test_fun2(self):
+       mt.fun2(self.fob,"hello world")
+       self.assertnotEquals(self.fob.tell(),0)
+
+if __name__ == "__main__":
+  unittest.main()
+
+
+
+HOw to install module:-  pip install numpy
+                         pip list
+                         pip uninstall numpy
+                         pip install --upgrade numpy
+
+
+How to distribute:-
+===================
+setup.py
+---------
+from distutils.core import setup
+
+setup(name='mymath',
+      version='1.0',
+      py_modules=['mymath'],
+      )
+
+C:\> python setup.py sdist
+
+
+C:\> python setup.py sdist --help-format
+C:\> python setup.py bdist --help-format
+
+
+
+Road Map - ML = numpy/scipy/scikitlearn - tensorflow,keras,
+           DA = pandas, matplotlib, seaborn
+           DevOps = ?
+           BigDAta = ? SDKs
+           DAtaSci = ? ML + DA + 
+           WEB DEvel = ? Django
+           QA        = ? Robo, selenium webdrivers
+           Monitor   = splunk
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
